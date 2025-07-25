@@ -1,0 +1,12 @@
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+          - refresh
+build:
+  id: 101
+  version: 1.2.3
+  name: "Native-Default-build"
+  type: "Default Build"

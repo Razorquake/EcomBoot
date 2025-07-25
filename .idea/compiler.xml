@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <bytecodeTargetLevel>
+      <module name="config" target="17" />
+      <module name="config-demo" target="17" />
+      <module name="config-demo.main" target="17" />
+      <module name="config-demo.test" target="17" />
+      <module name="config.main" target="17" />
+      <module name="config.test" target="17" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="com.info.config-demo.main" options="-parameters" />
+      <module name="com.info.config-demo.test" options="-parameters" />
+      <module name="com.razorquake.config.main" options="-parameters" />
+      <module name="com.razorquake.config.test" options="-parameters" />
+      <module name="config" options="-parameters" />
+      <module name="config-demo" options="-parameters" />
+      <module name="config-demo.main" options="-parameters" />
+      <module name="config-demo.test" options="-parameters" />
+      <module name="config-server" options="-parameters" />
+      <module name="config.main" options="-parameters" />
+      <module name="config.test" options="-parameters" />
+      <module name="configserver.main" options="-parameters" />
+      <module name="configserver.test" options="-parameters" />
+      <module name="order" options="-parameters" />
+      <module name="order.main" options="-parameters" />
+      <module name="order.test" options="-parameters" />
+      <module name="product" options="-parameters" />
+      <module name="product.main" options="-parameters" />
+      <module name="product.test" options="-parameters" />
+      <module name="quick-shop" options="-parameters" />
+      <module name="quick-shop.main" options="-parameters" />
+      <module name="quick-shop.test" options="-parameters" />
+      <module name="user" options="-parameters" />
+      <module name="user.main" options="-parameters" />
+      <module name="user.test" options="-parameters" />
+    </option>
+  </component>
+</project>

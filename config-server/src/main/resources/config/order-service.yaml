@@ -1,0 +1,29 @@
+spring:
+
+  datasource:
+    username: ${DB_USERNAME}
+    url: ${DB_URL}
+    password: ${DB_PASSWORD}
+  jpa:
+    database: POSTGRESQL
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+  #    properties:
+  #      hibernate:
+  #        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+          - "*"
+
+server:
+  port: 8083

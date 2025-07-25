@@ -1,0 +1,42 @@
+spring:
+  application:
+    name: quick-shop
+  datasource:
+    username: razorquake
+    url: jdbc:postgresql://localhost:5433/razorquake
+    password: ajtf24992003
+  jpa:
+    database: POSTGRESQL
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+#    properties:
+#      hibernate:
+#        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: ALWAYS
+#    shutdown:
+#      access: UNRESTRICTED
+
+  info:
+    env:
+      enabled: true
+
+info:
+  app:
+    name: Quick Shop
+    description: A quick and easy shopping application
+    version: 1.0.0
+    contact:
+      name: Quick Shop Team
+      email:
+
+
+

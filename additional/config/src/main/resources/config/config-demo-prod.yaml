@@ -1,0 +1,19 @@
+build:
+  id: 101
+  version: 1.2.3
+  name: "Native Production-Build 123"
+  type: "Native Production Build"
+
+spring:
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+          - "*"

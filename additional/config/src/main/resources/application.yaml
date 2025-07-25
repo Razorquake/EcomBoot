@@ -1,0 +1,40 @@
+spring:
+  application:
+    name: config
+  profiles:
+    active:
+      - native
+  cloud:
+    config:
+      server:
+        native:
+          search-locations: file:///C:\Users\anant\OneDrive\Desktop\EcomBoot\config\src\main\resources\config
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+          - "*"
+#  cloud:
+#    config:
+#      server:
+#        git:
+#          uri: https://github.com/Razorquake/app-configuration
+#          username: ${GIT_USER}
+#          password: ${GIT_TOKEN}
+
+server:
+  port: 8888
+
+encrypt:
+  key-store:
+    location: 'classpath:config-server.jks'
+    password: mypass
+    alias: config-server-key
+
