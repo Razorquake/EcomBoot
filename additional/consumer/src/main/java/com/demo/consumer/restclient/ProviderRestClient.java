@@ -1,7 +1,6 @@
 package com.demo.consumer.restclient;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestClient;
 

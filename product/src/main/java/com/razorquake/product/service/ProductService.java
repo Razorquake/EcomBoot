@@ -1,13 +1,11 @@
 package com.razorquake.product.service;
 
 
-import com.netflix.appinfo.ApplicationInfoManager;
 import com.razorquake.product.dto.ProductRequest;
 import com.razorquake.product.dto.ProductResponse;
 import com.razorquake.product.model.Product;
 import com.razorquake.product.repository.ProductRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

@@ -1,6 +1,5 @@
 package com.razorquake.product.repository;
 
-import com.netflix.appinfo.ApplicationInfoManager;
 import com.razorquake.product.model.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
