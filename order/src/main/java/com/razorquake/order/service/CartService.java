@@ -1,7 +1,11 @@
 package com.razorquake.order.service;
 
 
+import com.razorquake.order.client.ProductServiceClient;
+import com.razorquake.order.client.UserServiceClient;
 import com.razorquake.order.dto.CartItemRequest;
+import com.razorquake.order.dto.ProductResponse;
+import com.razorquake.order.dto.UserResponse;
 import com.razorquake.order.model.CartItem;
 import com.razorquake.order.repository.CartItemRepository;
 import jakarta.transaction.Transactional;
@@ -10,6 +14,7 @@ import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -17,16 +22,23 @@ import java.util.List;
 public class CartService {
 
     private final CartItemRepository cartItemRepository;
+    private final ProductServiceClient productServiceClient;
+    private final UserServiceClient userServiceClient;
 
     public boolean addToCart(String userId, CartItemRequest cartItemRequest) {
+        ProductResponse product = productServiceClient.getProductById(cartItemRequest.getProductId());
+        if (product == null) {
+            return false; // Product not found
+        }
+        if (product.getStockQuantity() < cartItemRequest.getQuantity()) {
+            return false; // Not enough stocks
+        }
+        UserResponse user = userServiceClient.getUserById(userId);
+        if (user == null) {
+            return false;
+        }
 //        Optional<Product> productOpt = productRepository.findById(cartItemRequest.getProductId());
-//        if (productOpt.isEmpty()) {
-//            return false; // Product not found
-//        }
 //        Product product = productOpt.get();
-//        if (product.getStockQuantity() < cartItemRequest.getQuantity()) {
-//            return false; // Not enough stocks
-//        }
 //        Optional<User> userOpt = userRepository.findById(userId);
 //        if (userOpt.isEmpty()) {
 //            return false; // User not found
@@ -38,23 +50,23 @@ public class CartService {
         if (existingCartItem != null) {
             // Update existing cart item
             existingCartItem.setQuantity(existingCartItem.getQuantity() + cartItemRequest.getQuantity());
-            existingCartItem.setPrice(BigDecimal.ZERO);
+            existingCartItem.setPrice(product.getPrice().multiply(BigDecimal.valueOf(existingCartItem.getQuantity())));
             cartItemRepository.save(existingCartItem);
         } else {
             // Create new cart item
-            CartItem newCartItem = mapToCartItem(cartItemRequest, userId, cartItemRequest.getProductId());
+            CartItem newCartItem = mapToCartItem(cartItemRequest, userId, cartItemRequest.getProductId(), product);
             cartItemRepository.save(newCartItem);
         }
         return true; // Item added to cart successfully
 
     }
 
-    private CartItem mapToCartItem(CartItemRequest cartItemRequest, String userId, String productId) {
+    private CartItem mapToCartItem(CartItemRequest cartItemRequest, String userId, String productId, ProductResponse product) {
         CartItem cartItem = new CartItem();
         cartItem.setUserId(userId);
         cartItem.setProductId(productId);
         cartItem.setQuantity(cartItemRequest.getQuantity());
-        cartItem.setPrice(BigDecimal.ZERO);
+        cartItem.setPrice(product.getPrice().multiply(BigDecimal.valueOf(cartItemRequest.getQuantity())));
         return cartItem;
     }
 

@@ -1,6 +1,7 @@
 package com.razorquake.product.service;
 
 
+import com.netflix.appinfo.ApplicationInfoManager;
 import com.razorquake.product.dto.ProductRequest;
 import com.razorquake.product.dto.ProductResponse;
 import com.razorquake.product.model.Product;
@@ -77,4 +78,8 @@ public class ProductService {
     }
 
 
+    public Optional<ProductResponse> getProductById(Long id) {
+        return productRepository.findByIdAndActiveTrue(id)
+                .map(this::mapToProductResponse);
+    }
 }
