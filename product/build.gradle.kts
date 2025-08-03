@@ -27,9 +27,12 @@ extra["springCloudVersion"] = "2025.0.0"
 
 dependencies {
 	implementation("org.springframework.cloud:spring-cloud-starter-config")
-	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 	implementation("org.springframework.cloud:spring-cloud-starter-bus-amqp")
 	implementation("org.springframework.cloud:spring-cloud-starter-netflix-eureka-client")
+	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+	implementation("io.micrometer:micrometer-registry-prometheus")
+	implementation("io.micrometer:micrometer-tracing-bridge-brave")
+	implementation("io.zipkin.reporter2:zipkin-reporter-brave")
 	implementation("org.springframework.boot:spring-boot-starter-actuator")
 	implementation("org.springframework.boot:spring-boot-starter-web")
 	compileOnly("org.projectlombok:lombok")
