@@ -4,13 +4,6 @@
     <annotationProcessing>
       <profile default="true" name="Default" enabled="true" />
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="config-demo.main" target="17" />
-      <module name="config-demo.test" target="17" />
-      <module name="config-server" target="17" />
-      <module name="config.main" target="17" />
-      <module name="config.test" target="17" />
-    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
@@ -20,11 +13,6 @@
       <module name="com.razorquake.config.test" options="-parameters" />
       <module name="config" options="-parameters" />
       <module name="config-demo" options="-parameters" />
-      <module name="config-demo.main" options="-parameters" />
-      <module name="config-demo.test" options="-parameters" />
-      <module name="config-server" options="-parameters" />
-      <module name="config.main" options="-parameters" />
-      <module name="config.test" options="-parameters" />
       <module name="configserver" options="-parameters" />
       <module name="configserver.main" options="-parameters" />
       <module name="configserver.test" options="-parameters" />

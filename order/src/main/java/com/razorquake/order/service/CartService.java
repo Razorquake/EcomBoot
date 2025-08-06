@@ -8,6 +8,7 @@ import com.razorquake.order.dto.ProductResponse;
 import com.razorquake.order.dto.UserResponse;
 import com.razorquake.order.model.CartItem;
 import com.razorquake.order.repository.CartItemRepository;
+import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -24,6 +25,7 @@ public class CartService {
     private final ProductServiceClient productServiceClient;
     private final UserServiceClient userServiceClient;
 
+    @CircuitBreaker(name = "productService", fallbackMethod = "addToCartFallback")
     public boolean addToCart(String userId, CartItemRequest cartItemRequest) {
         ProductResponse product = productServiceClient.getProductById(cartItemRequest.getProductId());
         if (product == null) {
@@ -58,6 +60,15 @@ public class CartService {
         }
         return true; // Item added to cart successfully
 
+    }
+
+    public boolean addToCartFallback(
+            String userId,
+            CartItemRequest cartItemRequest,
+            Exception exception
+            ) {
+        System.err.println("Exception occurred while adding item to cart: " + exception.getMessage());
+        return false;
     }
 
     private CartItem mapToCartItem(CartItemRequest cartItemRequest, String userId, String productId, ProductResponse product) {
