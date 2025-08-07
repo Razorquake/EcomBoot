@@ -36,6 +36,22 @@
         </option>
       </GradleProjectSettings>
       <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/additional/kafka/consumer" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/additional/kafka/consumer" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/additional/kafka/producer" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/additional/kafka/producer" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
         <option name="externalProjectPath" value="$PROJECT_DIR$/additional/producer" />
         <option name="modules">
           <set>
@@ -64,6 +80,14 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$/gateway" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/notification" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/notification" />
           </set>
         </option>
       </GradleProjectSettings>
