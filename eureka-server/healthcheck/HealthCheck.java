@@ -1,7 +1,7 @@
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-public class HeathCheck {
+public class HealthCheck {
     public static void main(String[] args) throws Exception {
         if (args.length == 0) {
             System.err.println("Usage: java HealthCheck.java <url>");
