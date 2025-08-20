@@ -10,6 +10,9 @@ spring:
     password: ${RABBIT_PASSWORD:guest}
     virtual-host: ${RABBIT_VIRTUAL_HOST:/}
     connection-timeout: 15000
+    ssl:
+      enabled: true
+      verify-hostname: true
 server:
   port: 8082
 
@@ -37,3 +40,14 @@ logging:
     rollingpolicy:
       max-file-size: 5MB
       max-history: 7
+
+keycloak:
+  admin:
+    username: user
+    password: USER
+  server:
+    url: http://localhost:8443
+  realm: ecom-app
+  client:
+    id: admin-cli
+    uid: e5c8c684-984f-4c90-b968-594b3099e172

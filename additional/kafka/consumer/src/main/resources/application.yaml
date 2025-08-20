@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: consumer
+  cloud:
+    stream:
+      function:
+        definition: consumer
+      bindings:
+        consumer-in-0:
+          destination: my-topic-2
+      kafka:
+        binder:
+          brokers: localhost:9092
+
+#  kafka:
+#    consumer:
+#      bootstrap-servers:
+#        - localhost:9092
+#      key-deserializer:  org.apache.kafka.common.serialization.StringDeserializer
+#      value-deserializer: org.springframework.kafka.support.serializer.ErrorHandlingDeserializer
+#      properties:
+#        spring.deserializer.value.delegate.class: org.springframework.kafka.support.serializer.JsonDeserializer
+#        spring.json.trusted.packages: "*"
+#        spring.json.value.default.type: com.razorquake.consumer.RiderLocation
+server:
+  port: 8081
+

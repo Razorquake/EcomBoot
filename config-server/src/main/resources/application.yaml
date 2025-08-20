@@ -11,6 +11,9 @@ spring:
     password: ${RABBIT_PASSWORD:guest}
     virtual-host: ${RABBIT_VIRTUAL_HOST:/}
     connection-timeout: 15000
+    ssl:
+      enabled: true
+      verify-hostname: true
   cloud:
     config:
       server:

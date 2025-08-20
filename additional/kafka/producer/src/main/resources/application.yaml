@@ -1,0 +1,30 @@
+spring:
+  application:
+    name: producer
+  cloud:
+    function:
+      definition: riderLocationSupplier
+    stream:
+      function:
+        definition: riderLocationSupplier
+      bindings:
+        riderLocationSupplier-out-0:
+          destination: my-topic-2
+          content-type: application/json
+      poller:
+        fixed-delay: 5000
+      kafka:
+        binder:
+          brokers: localhost:9092
+#  kafka:
+#    producer:
+#      bootstrap-servers:
+#        - localhost:9092
+#      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+#      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+#      properties:
+#        spring.json.add.type.headers: false
+#  cloud:
+#    function:
+#      definition: uppercase
+#    function.web.path: /uppercase

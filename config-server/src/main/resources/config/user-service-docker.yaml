@@ -1,0 +1,56 @@
+spring:
+  data:
+    mongodb:
+      uri: ${DB_URL}
+      database: ${DB_NAME}
+  rabbitmq:
+    host: ${RABBIT_HOST:localhost}
+    port: ${RABBIT_PORT:5672}
+    username: ${RABBIT_USERNAME:guest}
+    password: ${RABBIT_PASSWORD:guest}
+    virtual-host: ${RABBIT_VIRTUAL_HOST:/}
+    connection-timeout: 15000
+    ssl:
+      enabled: true
+      verify-hostname: true
+server:
+  port: 8082
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+          - "*"
+  tracing:
+    sampling:
+      probability: 1.0
+  zipkin:
+    tracing:
+      endpoint: ${ZIPKIN_URL:http://zipkin:9411/api/v2/spans}
+
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    serviceUrl:
+      defaultZone: http://eureka-server:8761/eureka
+
+logging:
+  file:
+    name: logs/${spring.application.name}.log
+  logback:
+    rollingpolicy:
+      max-file-size: 5MB
+      max-history: 7
+
+keycloak:
+  admin:
+    username: user
+    password: USER
+  server:
+    url: http://keycloak:8080
+  realm: ecom-app
+  client:
+    id: admin-cli
+    uid: e5c8c684-984f-4c90-b968-594b3099e172

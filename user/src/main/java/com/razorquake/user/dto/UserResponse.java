@@ -7,6 +7,7 @@ import java.time.LocalDateTime;
 
 @Data
 public class UserResponse {
+    private String keycloakId;
     private String id;
     private String firstName;
     private String lastName;

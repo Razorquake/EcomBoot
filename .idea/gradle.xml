@@ -60,6 +60,30 @@
         </option>
       </GradleProjectSettings>
       <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/additional/security/auth-code-flow" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/additional/security/auth-code-flow" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/additional/security/client" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/additional/security/client" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/additional/security/resource" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/additional/security/resource" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
         <option name="externalProjectPath" value="$PROJECT_DIR$/config-server" />
         <option name="modules">
           <set>
@@ -104,14 +128,6 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$/product" />
-          </set>
-        </option>
-      </GradleProjectSettings>
-      <GradleProjectSettings>
-        <option name="externalProjectPath" value="$PROJECT_DIR$/quick-shop" />
-        <option name="modules">
-          <set>
-            <option value="$PROJECT_DIR$/quick-shop" />
           </set>
         </option>
       </GradleProjectSettings>

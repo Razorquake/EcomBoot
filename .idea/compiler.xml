@@ -4,13 +4,31 @@
     <annotationProcessing>
       <profile default="true" name="Default" enabled="true" />
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="com.razorquake.producer" target="17" />
+      <module name="quick-shop" target="17" />
+      <module name="quick-shop.main" target="17" />
+      <module name="quick-shop.test" target="17" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="auth-code-flow" options="-parameters" />
+      <module name="auth-code-flow.main" options="-parameters" />
+      <module name="auth-code-flow.test" options="-parameters" />
+      <module name="client" options="-parameters" />
+      <module name="client.main" options="-parameters" />
+      <module name="client.test" options="-parameters" />
+      <module name="com.demo.consumer" options="-parameters" />
       <module name="com.info.config-demo.main" options="-parameters" />
       <module name="com.info.config-demo.test" options="-parameters" />
       <module name="com.razorquake.config.main" options="-parameters" />
       <module name="com.razorquake.config.test" options="-parameters" />
+      <module name="com.razorquake.consumer.main" options="-parameters" />
+      <module name="com.razorquake.consumer.test" options="-parameters" />
+      <module name="com.razorquake.producer" options="-parameters" />
+      <module name="com.razorquake.producer.main" options="-parameters" />
+      <module name="com.razorquake.producer.test" options="-parameters" />
       <module name="config" options="-parameters" />
       <module name="config-demo" options="-parameters" />
       <module name="configserver" options="-parameters" />
@@ -28,6 +46,10 @@
       <module name="gateway" options="-parameters" />
       <module name="gateway.main" options="-parameters" />
       <module name="gateway.test" options="-parameters" />
+      <module name="kafka.producer" options="-parameters" />
+      <module name="notification" options="-parameters" />
+      <module name="notification.main" options="-parameters" />
+      <module name="notification.test" options="-parameters" />
       <module name="order" options="-parameters" />
       <module name="order.main" options="-parameters" />
       <module name="order.test" options="-parameters" />
@@ -40,6 +62,9 @@
       <module name="quick-shop" options="-parameters" />
       <module name="quick-shop.main" options="-parameters" />
       <module name="quick-shop.test" options="-parameters" />
+      <module name="resource" options="-parameters" />
+      <module name="resource.main" options="-parameters" />
+      <module name="resource.test" options="-parameters" />
       <module name="user" options="-parameters" />
       <module name="user.main" options="-parameters" />
       <module name="user.test" options="-parameters" />

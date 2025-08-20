@@ -16,13 +16,21 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class UserService {
     private final UserRepository userRepository;
+    private final KeyCloakAdminService keyCloakAdminService;
     public List<UserResponse> getAllUsers() {
         return userRepository.findAll().stream().map(
                 this::mapToUserResponse
         ).toList();
     }
     public void createUser(UserRequest userRequest) {
-        userRepository.save(mapToUser(new User(), userRequest));
+        String keycloakUserId = keyCloakAdminService.createUser(
+                keyCloakAdminService.getAccessToken(),
+                userRequest
+        );
+        User user = mapToUser(new User(), userRequest);
+        user.setKeycloakId(keycloakUserId);
+        keyCloakAdminService.assignRealmRoleToUser(keycloakUserId, "USER");
+        userRepository.save(user);
     }
 
 
@@ -42,6 +50,7 @@ public class UserService {
     private UserResponse mapToUserResponse(User user) {
         UserResponse response = new UserResponse();
         response.setId(user.getId());
+        response.setKeycloakId(user.getKeycloakId());
         response.setFirstName(user.getFirstName());
         response.setLastName(user.getLastName());
         response.setPhoneNumber(user.getPhoneNumber());
@@ -84,7 +93,6 @@ public class UserService {
         if (userRequest.getAddress() != null) {
             user.setAddress(mapToAddress(userRequest.getAddress()));
         }
-
         return user;
     }
 }

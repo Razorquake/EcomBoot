@@ -54,7 +54,7 @@ public class CartService {
             existingCartItem.setPrice(product.getPrice().multiply(BigDecimal.valueOf(existingCartItem.getQuantity())));
             cartItemRepository.save(existingCartItem);
         } else {
-            // Create new cart item
+            // Create a new cart item
             CartItem newCartItem = mapToCartItem(cartItemRequest, userId, cartItemRequest.getProductId(), product);
             cartItemRepository.save(newCartItem);
         }
@@ -84,7 +84,7 @@ public class CartService {
         CartItem cartItem = cartItemRepository.findByUserIdAndProductId(userId, productId);
         if (cartItem!=null){
             cartItemRepository.delete(cartItem);
-            return true; // Item removed from cart successfully
+            return true; // Item removed from the cart successfully
         }
 
         return false; // Product not found in cart or User isn't found
